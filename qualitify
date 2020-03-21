@@ -1,0 +1,39 @@
+#!/bin/bash
+
+echo -e "\n\e[104m Qualitify \e[0m\n"
+
+echo -e "\n\e[94m PHP Code Sniffer \e[0m\n"
+vendor/bin/phpcs src/ tests/
+
+if [ $? -eq 0 ]
+then
+  echo -e "\n\e[30;48;5;82m Success! \e[0m\n"
+fi
+echo -e "------------------------------------------------------------------------------------------------------------\n"
+
+echo -e "\n\e[94m PHP Mess Detector \e[0m\n"
+vendor/bin/phpmd src/ text cleancode
+
+if [ $? -eq 0 ]
+then
+  echo -e "\n\e[30;48;5;82m Success! \e[0m\n"
+fi
+echo -e "------------------------------------------------------------------------------------------------------------\n"
+
+echo -e "\n\e[94m PHP Stan \e[0m\n"
+vendor/bin/phpstan analyse -c phpstan.neon
+
+if [ $? -eq 0 ]
+then
+  echo -e "\n\e[30;48;5;82m Success! \e[0m\n"
+fi
+echo -e "------------------------------------------------------------------------------------------------------------\n"
+
+echo -e "\n\e[94m PHPUnit \e[0m\n"
+bin/phpunit
+
+if [ $? -eq 0 ]
+then
+  echo -e "\n\e[30;48;5;82m Success! \e[0m\n"
+fi
+echo -e "------------------------------------------------------------------------------------------------------------\n"
