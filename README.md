@@ -7,18 +7,12 @@ This is a set of code quality tools for my PHP Symfony projects. The tools used 
 * [PHP Stan](https://github.com/phpstan/phpstan)
 * [PHPUnit (Symfony bridge)](https://symfony.com/doc/current/testing.html)
 
-## Requirements
+## Usage
 
-Before using them, we need to install them in our project. So, launch this in the root of your project:
-
-```bash
-composer require --dev "squizlabs/php_codesniffer"
-composer require --dev "phpmd/phpmd"
-composer require --dev "phpstan/phpstan"
-composer require --dev "symfony/phpunit-bridge"
-```
-
-Once they are all installed, add the 'qualitify' script to your 'bin' folder. Then you can execute:
+Add the 'qualitify' script at your project 'bin' folder. Then just launch it by executing the following:
 ```bash
 bin/qualitify
 ```
+
+At the beginning it will check if the tools are installed in the project. If they are not installed, they will be
+required for your dev environment using composer.
